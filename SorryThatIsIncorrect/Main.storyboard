@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1bk-c6-0hg">
+                                <rect key="frame" x="29.5" y="627" width="316" height="28"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-26-hCO">
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="29"/>
+                                        <segments>
+                                            <segment title="Metal Kernel"/>
+                                            <segment title="GLSL Kernel"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="selectorChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="YGh-Tm-mZb"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-5k-qU8">
+                                        <rect key="frame" x="187" y="0.0" width="129" height="29"/>
+                                        <segments>
+                                            <segment title="Metal"/>
+                                            <segment title="OpenGL"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="selectorChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="CR0-ad-1ue"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1va-u4-bso">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iM8-He-4dE" customClass="CIImageOpenGLView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <viewLayoutGuide key="safeArea" id="Z2t-Id-08D"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7K-nG-LhI" customClass="CIImageMetalView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="g7K-nG-LhI" secondAttribute="bottom" id="15N-lH-Pmv"/>
+                                    <constraint firstAttribute="trailing" secondItem="iM8-He-4dE" secondAttribute="trailing" id="38H-Jo-tqu"/>
+                                    <constraint firstItem="g7K-nG-LhI" firstAttribute="leading" secondItem="1va-u4-bso" secondAttribute="leading" id="6du-Fn-OLE"/>
+                                    <constraint firstAttribute="bottom" secondItem="iM8-He-4dE" secondAttribute="bottom" id="Je5-o0-xtb"/>
+                                    <constraint firstItem="g7K-nG-LhI" firstAttribute="top" secondItem="1va-u4-bso" secondAttribute="top" id="OyH-WP-d7C"/>
+                                    <constraint firstItem="iM8-He-4dE" firstAttribute="top" secondItem="1va-u4-bso" secondAttribute="top" id="Saj-wt-aIv"/>
+                                    <constraint firstItem="iM8-He-4dE" firstAttribute="leading" secondItem="1va-u4-bso" secondAttribute="leading" id="mdH-FZ-xn7"/>
+                                    <constraint firstAttribute="trailing" secondItem="g7K-nG-LhI" secondAttribute="trailing" id="uGb-3E-f2m"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1bk-c6-0hg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5zG-dd-BWg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1bk-c6-0hg" secondAttribute="bottom" constant="12" id="CUs-w6-brM"/>
+                            <constraint firstItem="1bk-c6-0hg" firstAttribute="top" secondItem="1va-u4-bso" secondAttribute="bottom" constant="12" id="YcB-G7-3qc"/>
+                            <constraint firstItem="1va-u4-bso" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gM9-2L-Hlu"/>
+                            <constraint firstItem="1va-u4-bso" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iNz-JO-kM8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1va-u4-bso" secondAttribute="trailing" id="zi3-JM-TgU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="backendSelector" destination="hZv-5k-qU8" id="g6o-0f-QGc"/>
+                        <outlet property="kernelSelector" destination="eYm-26-hCO" id="bpm-5q-ZR9"/>
+                        <outlet property="metalView" destination="g7K-nG-LhI" id="SGd-Zd-EoR"/>
+                        <outlet property="openGLView" destination="iM8-He-4dE" id="lwi-qg-Cnk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
